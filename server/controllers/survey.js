@@ -19,7 +19,7 @@ module.exports.displaySurveyList = (req, res, next) => {
 
             res.render('survey/list', 
             {title: 'Surveys', 
-            BookList: surveyList, 
+            SurveyList: surveyList, 
             displayName: req.user ? req.user.displayName : ''});      
         }
     });
@@ -57,7 +57,7 @@ module.exports.processAddPage = (req, res, next) => {
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
 
-    Book.findById(id, (err, surveyToEdit) => {
+    Survey.findById(id, (err, surveyToEdit) => {
         if(err)
         {
             console.log(err);
