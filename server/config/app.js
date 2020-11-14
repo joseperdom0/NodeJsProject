@@ -42,6 +42,7 @@ mongoDB.once('open', ()=>{
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let booksRouter = require('../routes/book');
+let surveysRouter = require('../routes/survey');
 let businessRouter = require('../routes/business');
 
 
@@ -92,6 +93,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/book-list',booksRouter);
+app.use('/survey-list',surveysRouter);
 app.use('/business-list',businessRouter);
 
 
