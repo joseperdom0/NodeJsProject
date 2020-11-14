@@ -69,6 +69,10 @@
                             <td class="text-center col-3"><%= SurveyList[count].question2 %></td>
                             
                             <td class="text-center col-3"><%= SurveyList[count].question3 %></td>
+
+                            <td class="text-center col-1">
+                                <a href="/survey-list/answer/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i> Answer</a>
                            
                          <% } %>
                     </tr>

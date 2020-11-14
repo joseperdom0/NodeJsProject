@@ -1,0 +1,99 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Content for the Add page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="nameTextField">Survey Title</label>
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Enter the Survey Title"
+                    name="name" 
+                    value="<%= survey.name %>"
+                    readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="question1TextField">Question 1</label>
+                    <input type="text" class="form-control"
+                    id="question1TextField"
+                    placeholder="Enter the First Question"
+                    name="question1" 
+                    value="<%= survey.question1 %>"
+                    readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="answer1TextField">Answer 1</label>
+                    <input type="text" class="form-control"
+                    id="Answer1TextField"
+                    placeholder="Enter the type of answer (WIP only short answers)"
+                    name="answer1" 
+                    value="<%= survey.answer1 %>"
+                    required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="question2TextField">Question 2</label>
+                    <input type="text" class="form-control"
+                    id="question2TextField"
+                    placeholder="Enter the Second Question"
+                    name="question2" 
+                    value="<%= survey.question2 %>"
+                    readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="answer2TextField">Answer 2</label>
+                    <input type="text" class="form-control"
+                    id="Answer2TextField"
+                    placeholder="Enter the type of answer (WIP only short answers)"
+                    name="answer2" 
+                    value="<%= survey.answer2 %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="question3TextField">Question 3</label>
+                    <input type="text" class="form-control"
+                    id="question3TextField"
+                    placeholder="Enter the Third Question"
+                    name="question3" 
+                    value="<%= survey.question3 %>"
+                    readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="answer3TextField">Answer 3</label>
+                    <input type="text" class="form-control"
+                    id="Answer3TextField"
+                    placeholder="Enter the type of answer (WIP only short answers)"
+                    name="answer3" 
+                    value="<%= survey.answer3 %>"
+                    required>
+                </div>
+
+
+                
+
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+                
+                    <a href="/survey-list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>

@@ -118,3 +118,20 @@ module.exports.performDelete = (req, res, next) => {
         }
     });
 }
+
+module.exports.displayAnswerPage = (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.findById(id, (err, surveyToAnswer) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the edit view
+            res.render('survey/answer', {title: 'Answer Survey', survey: surveyToAnswer})
+        }
+    });
+}
