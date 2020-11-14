@@ -106,7 +106,7 @@ module.exports.processLoginPage = (req, res, next) => {
             }, token: authToken});
             */
 
-            return res.redirect('/business-list');
+            return res.redirect('/survey-list');
         });
     })(req, res, next);
 }
