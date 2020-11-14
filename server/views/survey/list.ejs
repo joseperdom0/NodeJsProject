@@ -10,27 +10,32 @@
             <h1><%= title %></h1>
 
             <% if(typeof displayName == 'string' && displayName) { %>
-                <a href="/book-list/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add a Book</a>
+                <a href="/survey-list/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Create a Survey</a>
             <% } %>
             <br>
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
                 <tr class="d-flex">
                     <% if(typeof displayName == 'string' && displayName) { %>
-                        <th class="text-center col-2">Title</th>
-                        <th class="text-center col-2">Author</th>
-                        <th class="text-center col-1">Year</th>
-                        <th class="col-4">Description</th>
-                        <th class="text-center col-1">Price</th>
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">Q1</th>
+                        <th class="text-center col-1">Answer 1</th>
+                        <th class="text-center col-2">Q2</th>
+                        <th class="text-center col-1">Answer 2</th>
+                        <th class="text-center col-2">Q3</th>
+                        <th class="text-center col-1">Answer 3</th>
+
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                     <% } else { %>
-                        <th class="text-center col-2">Title</th>
-                        <th class="text-center col-2">Author</th>
-                        <th class="text-center col-1">Year</th>
-                        <th class="col-6">Description</th>
-                        <th class="text-center col-1">Price</th>
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">Q1</th>
+                        <th class="text-center col-1">Answer 1</th>
+                        <th class="text-center col-2">Q2</th>
+                        <th class="text-center col-1">Answer 2</th>
+                        <th class="text-center col-2">Q3</th>
+                        <th class="text-center col-1">Answer 3</th>
                     <% } %>
                 </tr>
 
