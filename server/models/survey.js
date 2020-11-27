@@ -10,6 +10,11 @@ answer2: String,
 question3: String,
 answer3: String
 },
+/* Kristopher Sabado - Edit */
+{
+    strict: false
+},
+
 {
     collection: "surveys"
 }) ;
