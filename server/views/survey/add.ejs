@@ -55,13 +55,14 @@ Add view
 <div class="form-group" id="questions">
     </div>
 <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js'></script>
-<script src="/jquery/jquery.js"></script>
+<script src="/public/Scripts/jquery.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
  
 var q = 1;
  $('#add').click(function(){     
+   
    $("#questions").append('<label>Question</label><input type="text" name=questions class="form-control">')
    //newSurvey.questions.push('Text1');
    //var x = document.createElement("INPUT");

@@ -15,6 +15,11 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+// to use jquery
+let jquery = require('jquery');
+var jsdom = require("jsdom").jsdom;
+global.$ = require('jquery/dist/jquery')
+
 //let jwt = require('jsonwebtoken');
 
 let passport = require('passport');
