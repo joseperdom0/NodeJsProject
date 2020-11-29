@@ -30,31 +30,53 @@ Add view
                     name="name" required>
                 </div>
                 
-                <!--Question 1-->
+                <!--Desxcription-->
 
                 <div class="form-group">
-                    <label for="question1TextField">Question 1</label>
+                    <label for="descriptionTextField">Description</label>
                     <input type="text" class="form-control"
-                    id="question1TextField"
-                    placeholder="Enter the First Question"
-                    name="question1" required>
+                    id="descriptionTextField"
+                    placeholder="Enter the Description of your Survey"
+                    name="description" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="answer1TextField">Answer 1 Type</label>
+                    <label for="creatorTextField">Please enter the name of the creator</label>
                     <input type="text" class="form-control"
-                    id="answer1TextField"
-                    placeholder="Enter the type of answer (WIP only short answers)"
-                    name="answer1" required>
+                    id="creatorTextField"
+                    placeholder="Enter your name"
+                    name="creator" required>
                 </div>
 
-                <div class="form-group" id="questionarray">
+               
 
-                </div>
-                                       
+
+
+<div class="form-group" id="questions">
+    </div>
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+ 
+var q = 1;
+ $('#add').click(function(){     
+   $("#questions").append('<label>Question</label><input type="text" name=questions class="form-control">')
+   //newSurvey.questions.push('Text1');
+   //var x = document.createElement("INPUT");
+   //x.setAttribute("type", "text");
+
+ });
+});
+</script>
+
+
+
                  <!-- Buttons-->
-                <button type="button" class="btn btn-primary" id="add">
-                    <i class="fas fa-edit"></i> Add Entry</button> 
+
+                 <button type="button" class="btn btn-primary" id="add">
+                    <i class="fas fa-edit"></i> Add Question</button> 
+
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
@@ -68,16 +90,6 @@ Add view
     
 </div>
 
-<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
-<script type="text/javascript">
-$(document).ready(function(){
- 
-var q = 1;
- $('#add').click(function(){     
-    $("#questionarray").append('<label>Question</label><input type="text" class="form-control">')
- });
-});
-</script>
 
 <%- include ../partials/bottom_nav.ejs %>  
 
