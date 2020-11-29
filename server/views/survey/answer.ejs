@@ -19,7 +19,7 @@
                     readonly>
                 </div>
 
-                <div class="form-group">
+              <!--  <div class="form-group">
                     <label for="question1TextField">Question 1</label>
                     <input type="text" class="form-control"
                     id="question1TextField"
@@ -78,6 +78,34 @@
                     required>
                 </div>
 
+
+-->
+
+
+                 <!-- Repeatable Template Row -->
+
+                 <% for(let count = 0; count < survey.questions.length; count++) { %>
+                        <div class="form-group">
+                        <label for="questionTextField">Question <%=count+1 %></label>
+                        <input type="text" class="form-control"
+                        id="questionTextField"
+                        placeholder="Enter the First Question"
+                        name="question1" 
+                        value="<%= survey.questions[count] %>"
+                        readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="answerTextField">Answer <%=count +1%></label>
+                        <input type="text" class="form-control"
+                        id="AnswerTextField"
+                        placeholder="Please enter a response"
+                        name="answer" 
+                        value=""
+                        required>
+                    </div>
+                    <% } %>
+        
 
                 
 
