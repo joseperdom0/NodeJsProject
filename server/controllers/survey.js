@@ -35,6 +35,7 @@ module.exports.processAddPage = (req, res, next) => {
         "name": req.body.name,
         "description": req.body.description,
         "creator": req.body.creator,
+        "questions" : req.body.questions,
         
     });
 
@@ -79,6 +80,7 @@ module.exports.processEditPage = (req, res, next) => {
         "name": req.body.name,
         "description": req.body.description,
         "creator": req.body.creator,
+        "questions": req.body.questions,
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) => {

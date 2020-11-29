@@ -32,7 +32,7 @@
                     <input type="text" class="form-control"
                     id="creatorTextField"
                     placeholder="Enter your name"
-                    name="answer1" required>
+                    name="creator" required>
                 </div>
 
                  <!--Question 2
@@ -74,7 +74,7 @@
 
 
 -->
-<div class="form-group" id="questionarray">
+<div class="form-group" id="questions">
     </div>
 <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
 <script type="text/javascript">
@@ -82,15 +82,21 @@ $(document).ready(function(){
  
 var q = 1;
  $('#add').click(function(){     
-    $("#questionarray").append('<label>Question</label><input type="text" class="form-control">')
+   $("#questions").append('<label>Question</label><input type="text" name=questions class="form-control">')
+   //newSurvey.questions.push('Text1');
+   //var x = document.createElement("INPUT");
+   //x.setAttribute("type", "text");
+
  });
 });
 </script>
 
+
+
                  <!-- Buttons-->
 
                  <button type="button" class="btn btn-primary" id="add">
-                    <i class="fas fa-edit"></i> Add Entry</button> 
+                    <i class="fas fa-edit"></i> Add Question</button> 
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
