@@ -39,6 +39,19 @@
                     required>
                 </div>
                 
+                <% for(let count = 0; count < survey.questions.length; count++) { %>
+                    <div class="form-group">
+                    <label for="questionTextField">Question <%=count %></label>
+                    <input type="text" class="form-control"
+                    id="questionTextField"
+                    placeholder="Enter the First Question"
+                    name="question1" 
+                    value="<%= survey.questions[count] %>"
+                    readonly>
+                </div>
+
+                
+                <% } %>
                
                 
 
