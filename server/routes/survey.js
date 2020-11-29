@@ -1,3 +1,16 @@
+/*
+Authors: Jose Aguilar 301119671
+Kristopher Sabado - 301118188
+Muhammad Ali Asjid - 301105070 
+Hussan Mirza - 301069260
+
+Date: 11-15-2020
+FileName : survey.js
+
+Survey Router
+*/
+
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');

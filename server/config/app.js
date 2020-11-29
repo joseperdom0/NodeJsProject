@@ -1,7 +1,10 @@
 /*
-Author: Jose Aguilar
-Student ID : 301119671
-Date: 10-11-2020
+Authors: Jose Aguilar 301119671
+Kristopher Sabado - 301118188
+Muhammad Ali Asjid - 301105070 
+Hussan Mirza - 301069260
+
+Date: 11-15-2020
 FileName : app.js
 
 */
