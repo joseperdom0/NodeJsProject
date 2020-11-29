@@ -33,12 +33,9 @@ module.exports.displayAddPage = (req, res, next) => {
 module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
-        "question1": req.body.question1,
-        "answer1": req.body.answer1,
-        "question2": req.body.question2,
-        "answer2": req.body.answer2,
-        "question3": req.body.question3,
-        "answer3": req.body.answer3
+        "description": req.body.description,
+        "creator": req.body.creator,
+        
     });
 
     Survey.create(newSurvey, (err, Survey) =>{
@@ -80,12 +77,8 @@ module.exports.processEditPage = (req, res, next) => {
     let updatedSurvey = Survey({
         "_id": id,
         "name": req.body.name,
-        "question1": req.body.question1,
-        "answer1": req.body.answer1,
-        "question2": req.body.question2,
-        "answer2": req.body.answer2,
-        "question3": req.body.question3,
-        "answer3": req.body.answer3
+        "description": req.body.description,
+        "creator": req.body.creator,
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) => {
