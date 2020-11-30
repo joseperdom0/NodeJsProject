@@ -1,0 +1,163 @@
+<!--
+Authors: Jose Aguilar 301119671
+Kristopher Sabado - 301118188
+Muhammad Ali Asjid - 301105070 
+Hussan Mirza - 301069260
+
+Date: 11-30-2020
+FileName : question.ejs
+
+Add question view
+ -->
+
+ <%- include ../partials/header.ejs %>
+
+ <%- include ../partials/main_nav.ejs %>
+ 
+ 
+ <!-- Content for the Add page -->
+ <div class="container">
+     <div class="row">
+         <div class="offset-md-3 col-md-6">
+             <h1><%= title %></h1>
+ 
+             <form class="form" method="POST" id="form">
+                 <div class="form-group">
+                     <label for="nameTextField">Survey Title</label>
+                     <input type="text" class="form-control"
+                     id="nameTextField"
+                     placeholder="Enter the Survey Title"
+                     name="name" readonly>
+                 </div>
+                 
+                 <!--Question 1-->
+                 <label for="questionn">Question 1</label>
+                 <div class="form-group" id="questionn">                   
+                    <div class="input-group">
+                        <input type="text" aria-label="First name" class="form-control">
+                        <div class="col-xs-2">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="multipleChoice">Multiple Choice</option>
+                            <option value="agreeOrDisagree">Agree/Disagree</option>
+                            <option value="shortAnswer">Short Answer</option>
+                          </select>
+                        </div>
+                    </div>
+
+                    <!-- If multiple choice question is selected, then show this div -->
+                    <div id="multipleChoice" class="group">  
+                        <!-- Gonna prompt the user for the choices -->
+                        <p>You have decided to make a this multiple choice question.</p> 
+                        <label>Please enter the choices: </label>  
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" readonly>
+                              </div>
+                            </div>
+                            <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
+                        </div>      
+                        
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" readonly>
+                              </div>
+                            </div>
+                            <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" readonly>
+                              </div>
+                            </div>
+                            <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" readonly>
+                              </div>
+                            </div>
+                            <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
+                        </div>                                              
+                    </div>
+
+                    <!-- If  agree or disagree question is selected, then show this div -->
+                    <div id="agreeOrDisagree" class="group">
+                        <!-- For this question type, the user does not have to add choices -->
+                        <p>You have decided to make this an Agree or Disagree question.</p>
+                    </div>
+
+                    <!-- If short answers question is selected, then show this div -->
+                    <div id="shortAnswer" class="group">
+                        <!-- For this question type, the user does not have to add choices -->
+                        <p>You have decided to make this a Short Answer question.</p>
+                    </div>
+                    
+                 </div>               
+ 
+                 <div class="form-group" id="questionarray">
+ 
+                 </div>
+                 
+                                        
+                  <!-- Buttons-->
+                 <button type="button" class="btn btn-primary" id="add">
+                     <i class="fas fa-edit"></i> Add Entry</button> 
+                 <button class="btn btn-primary" type="submit">
+                     <i class="fas fa-edit"></i> Submit</button>
+                 
+                     <a href="/survey-list" class="btn btn-warning">
+                         <i class="fas fa-undo"></i> Cancel</a>
+ 
+             </form>
+         </div>
+ 
+     </div>
+     
+ </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+
+ <script type="text/javascript">
+    $('.group').hide();
+    //$('#student').show();
+    $('#inputGroupSelect01').change(
+    function () 
+    {
+        $('.group').hide();
+        $('#'+$(this).val()).show();
+    })
+    $("input[placeholder]").each(
+        function () 
+        {
+         $(this).attr('size', $(this).attr('placeholder').length);
+    });
+    
+</script>
+
+ <script type="text/javascript">
+ $(document).ready(function(){
+
+    var q = 2;
+    $('#add').click(function(){     
+      $('.group').hide();
+        $("#questionarray").append('<div class="form-group"><label id="questiontest"></label>')  
+        $("#questionn").clone().appendTo("#questionarray");
+        document.getElementById("questiontest").innerHTML  = "Question " + q;
+        document.getElementById("questiontest").setAttribute('id', 'questiontest' + q);
+        $('#questionarray').append('</div>')
+        q++;
+    });
+ });
+ </script>
+ 
+ <%- include ../partials/bottom_nav.ejs %>  
+ 
+ <%- include ../partials/footer.ejs %>
