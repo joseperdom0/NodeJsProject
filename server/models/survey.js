@@ -7,10 +7,6 @@ description: String,
 creator: String,
 questions: [],
 },
-/* Kristopher Sabado - Edit */
-{
-    strict: false
-},
 
 {
     collection: "surveys"

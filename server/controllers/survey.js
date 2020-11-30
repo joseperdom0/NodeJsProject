@@ -13,7 +13,10 @@ Survey Controller
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+
+// to use jquery
 let jquery = require('jquery');
+let jsdom = require("jsdom").jsdom;
 
 //let jwt = require('jsonwebtoken');
 
