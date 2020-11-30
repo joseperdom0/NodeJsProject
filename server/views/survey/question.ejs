@@ -33,7 +33,7 @@ Add question view
                  <!--Question 1-->
                  <label for="questionn">Question 1</label>
                  <div class="form-group" id="questionn">                   
-                    <div class="input-group">
+                    <div class="input-group" id="questionBox1">
                         <input type="text" aria-label="First name" class="form-control">
                         <div class="col-xs-2">
                         <select class="custom-select" id="inputGroupSelect01">
@@ -46,59 +46,60 @@ Add question view
                     </div>
 
                     <!-- If multiple choice question is selected, then show this div -->
-                    <div id="multipleChoice" class="group">  
-                        <!-- Gonna prompt the user for the choices -->
-                        <p>You have decided to make a this multiple choice question.</p> 
-                        <label>Please enter the choices: </label>  
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="radio" aria-label="Radio button for following text input" readonly>
-                              </div>
+                    <div id="choiceContainer">
+                        <div id="multipleChoice" class="group">  
+                            <!-- Gonna prompt the user for the choices -->
+                            <p>You have decided to make a this multiple choice question.</p> 
+                            <label>Please enter the choices: </label>  
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                  </div>
+                                </div>
+                                <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
+                            </div>      
+                            
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                  </div>
+                                </div>
+                                <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
                             </div>
-                            <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
-                        </div>      
-                        
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="radio" aria-label="Radio button for following text input" readonly>
-                              </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                  </div>
+                                </div>
+                                <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
                             </div>
-                            <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                  </div>
+                                </div>
+                                <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
+                            </div>                                              
                         </div>
 
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="radio" aria-label="Radio button for following text input" readonly>
-                              </div>
-                            </div>
-                            <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
+                        <!-- If  agree or disagree question is selected, then show this div -->
+                        <div id="agreeOrDisagree" class="group">
+                            <!-- For this question type, the user does not have to add choices -->
+                            <p>You have decided to make this an Agree or Disagree question.</p>
                         </div>
 
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="radio" aria-label="Radio button for following text input" readonly>
-                              </div>
-                            </div>
-                            <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
-                        </div>                                              
-                    </div>
-
-                    <!-- If  agree or disagree question is selected, then show this div -->
-                    <div id="agreeOrDisagree" class="group">
-                        <!-- For this question type, the user does not have to add choices -->
-                        <p>You have decided to make this an Agree or Disagree question.</p>
-                    </div>
-
-                    <!-- If short answers question is selected, then show this div -->
-                    <div id="shortAnswer" class="group">
-                        <!-- For this question type, the user does not have to add choices -->
-                        <p>You have decided to make this a Short Answer question.</p>
-                    </div>
-                    
+                        <!-- If short answers question is selected, then show this div -->
+                        <div id="shortAnswer" class="group">
+                            <!-- For this question type, the user does not have to add choices -->
+                            <p>You have decided to make this a Short Answer question.</p>
+                        </div>
+                  </div>
                  </div>               
  
                  <div class="form-group" id="questionarray">
@@ -126,8 +127,8 @@ Add question view
  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
 
  <script type="text/javascript">
-    $('.group').hide();
-    //$('#student').show();
+ $(document).ready(function(){
+  $('.group').hide();
     $('#inputGroupSelect01').change(
     function () 
     {
@@ -139,20 +140,34 @@ Add question view
         {
          $(this).attr('size', $(this).attr('placeholder').length);
     });
-    
-</script>
-
- <script type="text/javascript">
- $(document).ready(function(){
-
     var q = 2;
     $('#add').click(function(){     
-      $('.group').hide();
         $("#questionarray").append('<div class="form-group"><label id="questiontest"></label>')  
-        $("#questionn").clone().appendTo("#questionarray");
+        $("#questionBox1").clone().attr('id', 'questionBox' + q).appendTo("#questionarray");
+        $("#choiceContainer").clone().attr('id','choiceContainer' +q).appendTo("#questionarray");
+
+
+        $("#questionBox" + q).children("div").children("#inputGroupSelect01").attr('id', "inputGroupSelect" +q);
         document.getElementById("questiontest").innerHTML  = "Question " + q;
         document.getElementById("questiontest").setAttribute('id', 'questiontest' + q);
+
+        $("#choiceContainer" + q).children("div").attr('class', 'group' +q);
         $('#questionarray').append('</div>')
+
+        var qq = q;  
+        $('#inputGroupSelect' + q).change(
+        function () 
+        {
+            var test = "#inputGroupSelect" + qq;
+            $('.group' + qq).hide();
+            $('#choiceContainer' + qq).children("#" + $(test).val()).show();
+        })
+        $("input[placeholder]").each(
+            function () 
+            {
+            $(this).attr('size', $(this).attr('placeholder').length);
+        });  
+          
         q++;
     });
  });
