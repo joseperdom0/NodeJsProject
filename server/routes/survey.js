@@ -46,6 +46,16 @@ router.get('/add', requireAuth, surveyController.displayAddPage);
 /* POST Route for processing the Add page - CREATE Operation */
 router.post('/add', requireAuth, surveyController.processAddPage);
 
+/*********Edited on 11/30/2020 ***********/
+
+/* GET Route for displaying the Add page - CREATE Operation */
+router.get('/question', requireAuth, surveyController.displayQuestionPage);
+
+/* POST Route for processing the Add page - CREATE Operation */
+router.post('/question', requireAuth, surveyController.processQuestionPage);
+
+/****************************************/
+
 /* GET Route for displaying the Edit page - UPDATE Operation */
 router.get('/edit/:id', requireAuth, surveyController.displayEditPage);
 
