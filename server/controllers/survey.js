@@ -22,6 +22,7 @@ let jsdom = require("jsdom").jsdom;
 
 // create a reference to the model
 let Survey = require('../models/survey');
+let Response = require('../models/response');
 
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
@@ -180,3 +181,32 @@ module.exports.displayAnswerPage = (req, res, next) => {
         }
     });
 }
+
+    module.exports.processAnswerPage = (req, res, next) => {
+
+        let id = req.params.id
+
+    let newResponse = Response({
+        
+        "name": req.body.name,
+        "description": req.body.description,
+        "creator": req.body.creator,
+        "questions": req.body.questions,
+        "answers" : req.body.answers,
+    });
+
+    Response.create( newResponse, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    });
+    
+    }
+    
