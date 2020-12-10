@@ -33,7 +33,7 @@ List of all survey Views
                         <th class="text-center col-2">Name</th>
                         <th class="text-center col-2">Description</th>
                         <th class="text-center col-1">Creator</th>
-                       
+                        <th class="text-center col-3">Survey Question Type</th>
 
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
@@ -43,6 +43,7 @@ List of all survey Views
                         <!--<th class="text-center col-1">Answer 1</th>-->
                         <th class="text-center col-3">Creator</th>
                         <!--<th class="text-center col-1">Answer 2</th>-->
+                        <th class="text-center col-3">Survey Question Type</th>
                        
                     <% } %>
                 </tr>
@@ -55,7 +56,7 @@ List of all survey Views
                             <td class="text-center col-2"><%= SurveyList[count].name %></td>
                             <td class="text-center col-2"><%= SurveyList[count].description %></td>
                             <td class="text-center col-1"><%= SurveyList[count].creator%></td>
-                                
+                            <td class="text-center col-3"><%= SurveyList[count].type%></td>    
                             
                             
                             
@@ -72,7 +73,7 @@ List of all survey Views
                             <td class="text-center col-3"><%= SurveyList[count].description %></td>
                           
                             <td class="text-center col-3"><%= SurveyList[count].creator %></td>
-                            
+                            <td class="text-center col-3"><%= SurveyList[count].type%></td>
                             
 
                             <td class="text-center col-1">

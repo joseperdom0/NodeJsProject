@@ -37,7 +37,7 @@ Add view
                      <input type="text" class="form-control"
                      id="surveyDesc"
                      placeholder="Enter Survey Description"
-                     name="surveyDesc" required>
+                     name="description" required>
                  </div>                
                                         
                   
@@ -46,7 +46,7 @@ Add view
 
                      <div class="form-group" id="qtype">
                         <label for="questiontype">Select Question Format:</label>
-                        <select class="custom-select" id="questiontype">
+                        <select class="custom-select" id="questiontype" name="selectpicker">
                             <option selected>Choose...</option>
                             <option value="multipleChoice">Multiple Choice</option>
                             <option value="shortAnswer">Short Answer</option>
@@ -57,7 +57,7 @@ Add view
                      <label for="questionn">Question 1</label>
                      <div class="form-group" id="questionn">                   
                         <div id="questionBox1" class="questionBox">                        
-                            <input type="text" aria-label="First name" class="form-control" placeholder="Please enter question here">
+                            <input type="text" aria-label="First name" name="questions" class="form-control" placeholder="Please enter question here">
                             <br>
                          </div>
                          
@@ -72,7 +72,7 @@ Add view
                                         <input type="radio" aria-label="Radio button for following text input" disabled>
                                       </div>
                                     </div>
-                                    <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
+                                    <input id="choiceOne" type="text" name="choices" class="form-control" placeholder="Please enter choice one" required>
                                 </div>      
                                 
                                 <div class="input-group">
@@ -81,7 +81,7 @@ Add view
                                         <input type="radio" aria-label="Radio button for following text input" disabled>
                                       </div>
                                     </div>
-                                    <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
+                                    <input id="choiceTwo" type="text" name="choices" class="form-control" placeholder="Please enter choice two" required>
                                 </div>
     
                                 <div class="input-group">
@@ -90,7 +90,7 @@ Add view
                                         <input type="radio" aria-label="Radio button for following text input" disabled>
                                       </div>
                                     </div>
-                                    <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
+                                    <input id="choiceThree" type="text" name="choices" class="form-control" placeholder="Please enter choice three"required>
                                 </div>
     
                                 <div class="input-group">
@@ -99,7 +99,7 @@ Add view
                                         <input type="radio" aria-label="Radio button for following text input" disabled>
                                       </div>
                                     </div>
-                                    <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
+                                    <input id="choiceFour" type="text" name="choices" class="form-control" placeholder="Please enter choice four" required>
                                 </div>                                              
                             </div>
     

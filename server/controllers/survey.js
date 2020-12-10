@@ -48,11 +48,20 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
+    let select = req.body.selectpicker;
+    let test = '';
+    if(select == 'multipleChoice') {
+        test = 'Multiple Choice';
+    }
+    else {
+        test = 'Short Answer';
+    }
     let newSurvey = Survey({
-        "name": req.body.name,
+        "name": req.body.name,    
         "description": req.body.description,
-        "creator": req.body.creator,
+        "type": test,
         "questions" : req.body.questions,
+        "choices" : req.body.choices
         
     });
 
