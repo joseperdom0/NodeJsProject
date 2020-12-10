@@ -36,14 +36,7 @@ FileName : main_nav.ejs
         <a class="nav-link" href="/about"><i class="fas fa-lg fa-question-circle"></i> About Us </a>
         </li>
 
-        <% if (title == "Answers") { %>
-          <li class="nav-item active ">
-            <% } else { %>
-          <li class="nav-item"></li>
-          <% } %>
-          <a class="nav-link" href="/survey-list/answers"> <i class="fas fa-lg fa-book-dead"></i> Answers </a>
-        </li>
-
+       
 
 
         <% if (title == "Services") { %>
@@ -65,6 +58,15 @@ FileName : main_nav.ejs
         
           <a class="nav-link" href="/survey-list"><i class="fas fa-lg fa-poll"></i></i> Survey List </a>
         </li>
+
+        <% if (title == "Answers") { %>
+          <li class="nav-item active ">
+            <% } else { %>
+          <li class="nav-item"></li>
+          <% } %>
+          <a class="nav-link" href="/survey-list/answers"> <i class="fas fa-lg fa-book-dead"></i> Answers </a>
+        </li>
+
 
 
         <% if (title == "Contact Us") { %>
