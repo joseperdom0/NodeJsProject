@@ -43,6 +43,7 @@ List of all answers Views
           
           
           <h3><%= ResponseList[count].name %></h3>
+          <h6>Answered @ <%= ResponseList[count].time %></h6>
           <% for(let count2 = 0; count2 < ResponseList[count].questions.length; count2++) { %>
           <b><%= ResponseList[count].questions[count2] %></b>
           <p><%= ResponseList[count].answers[count2] %></p>
