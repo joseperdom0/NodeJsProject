@@ -13,6 +13,7 @@ FileName : app.js
         console.log("App started....");
         
         let deleteButtons = document.querySelectorAll('.btn-danger');
+        let submitButtons = document.querySelectorAll('.btn-submit');
         
         for(button of deleteButtons)
         {
@@ -24,6 +25,17 @@ FileName : app.js
                 }
             });
         }
+
+        for(button of submitButtons)
+        {
+            button.addEventListener('click', (event)=>{
+               
+                    window.alert("Thank you for your submission!");
+                    //window.location.assign('/book-list');
+                
+            });
+        }
+
     }
 
     window.addEventListener("load",Start);

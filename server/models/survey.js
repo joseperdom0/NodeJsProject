@@ -5,6 +5,7 @@ let surveyModel = mongoose.Schema({
 name: String,
 description: String,
 creator: String,
+type: String,
 questions: [],
 choices: [],
 answers: [],

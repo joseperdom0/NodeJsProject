@@ -210,3 +210,20 @@ module.exports.displayAnswerPage = (req, res, next) => {
     
     }
     
+    module.exports.displayAnswerList = (req, res, next) => {
+        Response.find((err, responseList) => {
+            if(err)
+            {
+                return console.error(err);
+            }
+            else
+            {
+                //console.log(SurveyList);
+    
+                res.render('survey/answer_list', 
+                {title: 'Answers', 
+                ResponseList: responseList, 
+                displayName: req.user ? req.user.displayName : ''});      
+            }
+        });
+    }

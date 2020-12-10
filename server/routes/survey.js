@@ -71,4 +71,7 @@ router.get('/answer/:id', surveyController.displayAnswerPage);
 /* POST to perform  Answer - ANSWER Operation */
 router.post('/answer/:id', surveyController.processAnswerPage);
 
+/* GET Route for the Answer List page - READ Operation */
+router.get('/answers', surveyController.displayAnswerList);
+
 module.exports = router;
