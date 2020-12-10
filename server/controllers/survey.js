@@ -200,19 +200,13 @@ module.exports.processAnswerPage = (req, res, next) => {
     var test;
     var count = Object.keys(req.body.choices).length /4
 
-    for (var i=1;i<=count;i++){
-        group = "group" + i;
-        console.log(group);
-        console.log(test);
-    }
-
     let newResponse = Response({
         "name": req.body.name,
         "description": req.body.description,
         "creator": req.body.creator,
         "questions": req.body.questions,
         "choices": req.body.choices,
-        "answers": test
+        "answers": req.body.answers
     });
 
     Response.create( newResponse, (err) => {

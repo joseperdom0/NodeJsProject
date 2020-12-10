@@ -48,7 +48,7 @@ Answer a survey view
                         <% let counter=count+1 %>
                         <div class="form-group">
                         <label for="answerTextField">Answer <%=count +1%></label>
-                        <div id="AnswerTextField">
+                        <div id="AnswerTextFieldContainer">
                             <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
@@ -62,7 +62,7 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-3] %>">
                                       </div>
                                     </div>
                                     <input id="choiceTwo" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-3] %>" readonly>
@@ -71,7 +71,7 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>"">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-2] %>"">
                                       </div>
                                     </div>
                                     <input id="choiceThree" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-2] %>" readonly>
@@ -80,13 +80,13 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-1] %>">
                                       </div>
                                     </div>
                                     <input id="choiceFour" type="text" name="choices" class="form-control" value="<%= survey.choices[counter*4-1] %>" readonly>
                                 </div>    
-                                <input type="text" class="form-control" id="AnswerTextField" placeholder="Please enter a response"
-                                name="answers" value="" required>                                          
+                                <input hidden type="text" class="form-control" id="AnswerTextField<%=count+1 %>" placeholder="Please enter a response"
+                                name="answers" value="" required readonly>                                          
                             </div>
                         </div>
                        
@@ -111,7 +111,7 @@ Answer a survey view
                     <label for="answerTextField">Time</label>
                     <input type="text" class="form-control" id="AnswerTextField" placeholder="Please enter a response"
                         name="time" value= "<%=time %>" readonly>
-                </div>
+                </div>    
 
                 <button class="btn btn-primary btn-submit" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
@@ -128,6 +128,24 @@ Answer a survey view
     </div>
 </div>
 
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js'></script>
+        
+<script type="text/javascript">
+$(document).ready(function(){
+    var q = $('#AnswerTextFieldContainer input[type="text"]').last().attr('id').toString();
+    var qq = parseInt(q.split('d')[1]);
+    var qqq;
+    $("input[type='radio']").click(function(){
+        for(var i=1;i<=qq;i++){
+            qqq = $("input[name='group" + i + "']:checked").val();
+            if(qqq){
+                $('#AnswerTextField' + i).attr('value', qqq);
+            }
+        }       
+    });
+    
+});
+</script>
 
 <%- include ../partials/bottom_nav.ejs %>
 
