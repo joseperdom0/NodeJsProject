@@ -70,7 +70,7 @@ router.get('/answer/:id', surveyController.displayAnswerPage);
 router.post('/answer/:id', surveyController.processAnswerPage);
 
 /* GET Route for the Answer List page - READ Operation */
-router.get('/answers', surveyController.displayAnswerList);
+router.get('/answers', requireAuth, surveyController.displayAnswerList);
 
 
 
