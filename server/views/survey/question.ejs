@@ -42,10 +42,11 @@ Add question view
                  <!--Question 1-->
                  <label for="questionn">Question 1</label>
                  <div class="form-group" id="questionn">                   
-                    <div id="questionBox1">                        
-                        <input type="text" aria-label="First name" class="form-control">
+                    <div id="questionBox1" class="questionBox">                        
+                        <input type="text" aria-label="First name" class="form-control" placeholder="Please enter question here">
+                        <br>
                      </div>
-
+                     
                     <!-- If multiple choice question is selected, then show this div -->
                     <div id="choiceContainer" class="choiceContainer">
                         <div id="multipleChoice" class="multipleChoice">  
@@ -54,7 +55,7 @@ Add question view
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">
-                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                    <input type="radio" aria-label="Radio button for following text input" disabled>
                                   </div>
                                 </div>
                                 <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
@@ -63,7 +64,7 @@ Add question view
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">
-                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                    <input type="radio" aria-label="Radio button for following text input" disabled>
                                   </div>
                                 </div>
                                 <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
@@ -72,7 +73,7 @@ Add question view
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">
-                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                    <input type="radio" aria-label="Radio button for following text input" disabled>
                                   </div>
                                 </div>
                                 <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
@@ -81,7 +82,7 @@ Add question view
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">
-                                    <input type="radio" aria-label="Radio button for following text input" readonly>
+                                    <input type="radio" aria-label="Radio button for following text input" disabled>
                                   </div>
                                 </div>
                                 <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
@@ -89,9 +90,9 @@ Add question view
                         </div>
 
                         <!-- If short answers question is selected, then show this div -->
-                        <div id="shortAnswer" class="shortAnswer">
-                            
+                        <div id="shortAnswer" class="shortAnswer">                           
                         </div>
+                        
                   </div>
                  </div>               
  
@@ -130,7 +131,7 @@ Add question view
             var qtype = "#questiontype";
             $('.' + $(qtype).val()).show();
             if ($(qtype).val() == 'multipleChoice') {
-                $('.shortAnswer').hide();
+                $('.shortAnswer').hide();              
             }
             else {
                 $('.multipleChoice').hide();
@@ -144,10 +145,10 @@ Add question view
     }); 
     var q = 2;
     $('#add').click(function(){     
-        $("#questionarray").append('<div class="form-group"><label id="questiontest"></label>')  
+        $("#questionarray").append('<div class="form-group">')   
         $("#questionBox1").clone().attr('id', 'questionBox' + q).appendTo("#questionarray");
         $("#choiceContainer").clone().attr('id','choiceContainer' +q).appendTo("#questionarray");
-
+        $("#questionBox" + q).prepend('<label id="questiontest"></label>')
 
         $("#questionBox" + q).children("div").children("#inputGroupSelect01").attr('id', "inputGroupSelect" +q);
         document.getElementById("questiontest").innerHTML  = "Question " + q;
