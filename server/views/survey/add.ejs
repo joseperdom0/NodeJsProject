@@ -40,12 +40,144 @@ Add view
                      name="surveyDesc" required>
                  </div>                
                                         
-                  <!-- Buttons-->
-                 <a href="/survey-list/question" class="btn btn-primary" role="button">
-                 <i class="fas fa-edit"></i> Next</a>
-                 
-                 <a href="/survey-list" class="btn btn-warning">
-                     <i class="fas fa-undo"></i> Cancel</a>
+                  
+
+
+
+                     <div class="form-group" id="qtype">
+                        <label for="questiontype">Select Question Format:</label>
+                        <select class="custom-select" id="questiontype">
+                            <option selected>Choose...</option>
+                            <option value="multipleChoice">Multiple Choice</option>
+                            <option value="shortAnswer">Short Answer</option>
+                        </select>
+                     </div>
+                     
+                     <!--Question 1-->
+                     <label for="questionn">Question 1</label>
+                     <div class="form-group" id="questionn">                   
+                        <div id="questionBox1" class="questionBox">                        
+                            <input type="text" aria-label="First name" class="form-control" placeholder="Please enter question here">
+                            <br>
+                         </div>
+                         
+                        <!-- If multiple choice question is selected, then show this div -->
+                        <div id="choiceContainer" class="choiceContainer">
+                            <div id="multipleChoice" class="multipleChoice">  
+                                <!-- Gonna prompt the user for the choices -->
+                                <label>Please enter the choices: </label>  
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" disabled>
+                                      </div>
+                                    </div>
+                                    <input id="choiceOne" type="text" name="choiceOne" class="form-control" placeholder="Please enter choice one" required>
+                                </div>      
+                                
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" disabled>
+                                      </div>
+                                    </div>
+                                    <input id="choiceTwo" type="text" name="choiceTwo" class="form-control" placeholder="Please enter choice two" required>
+                                </div>
+    
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" disabled>
+                                      </div>
+                                    </div>
+                                    <input id="choiceThree" type="text" name="choiceThree"class="form-control" placeholder="Please enter choice three"required>
+                                </div>
+    
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" disabled>
+                                      </div>
+                                    </div>
+                                    <input id="choiceFour" type="text" name="choiceFour" class="form-control" placeholder="Please enter choice four" required>
+                                </div>                                              
+                            </div>
+    
+                            <!-- If short answers question is selected, then show this div -->
+                            <div id="shortAnswer" class="shortAnswer">                           
+                            </div>
+                            
+                      </div>
+                     </div>               
+     
+                     <div class="form-group" id="questionarray">
+     
+                     </div>
+                     
+                                            
+                      <!-- Buttons-->
+                     <button type="button" class="btn btn-primary" id="add">
+                         <i class="fas fa-edit"></i> Add Entry</button> 
+                     <button class="btn btn-primary" type="submit">
+                         <i class="fas fa-edit"></i> Submit</button>
+                     
+                         <a href="/survey-list" class="btn btn-warning">
+                             <i class="fas fa-undo"></i> Cancel</a>
+     
+                 </form>
+             </div>
+     
+         </div>
+         
+     </div>
+     
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+    
+     <script type="text/javascript">
+     $(document).ready(function(){
+        var qq = q;
+        $('.multipleChoice').hide();
+        $('.shortAnswer').hide(); 
+            $('#questiontype').change(
+            function () 
+            {
+                var qtype = "#questiontype";
+                $('.' + $(qtype).val()).show();
+                if ($(qtype).val() == 'multipleChoice') {
+                    $('.shortAnswer').hide();              
+                }
+                else {
+                    $('.multipleChoice').hide();
+                }
+    
+            })
+            $("input[placeholder]").each(
+                function () 
+                {
+                $(this).attr('size', $(this).attr('placeholder').length);
+        }); 
+        var q = 2;
+        $('#add').click(function(){     
+            $("#questionarray").append('<div class="form-group">')   
+            $("#questionBox1").clone().attr('id', 'questionBox' + q).appendTo("#questionarray");
+            $("#choiceContainer").clone().attr('id','choiceContainer' +q).appendTo("#questionarray");
+            $("#questionBox" + q).prepend('<label id="questiontest"></label>')
+    
+            $("#questionBox" + q).children("div").children("#inputGroupSelect01").attr('id', "inputGroupSelect" +q);
+            document.getElementById("questiontest").innerHTML  = "Question " + q;
+            document.getElementById("questiontest").setAttribute('id', 'questiontest' + q);
+    
+            $('#questionarray').append('</div>')
+    
+            q++;
+        });
+     });
+     </script>
+     
+     <%- include ../partials/bottom_nav.ejs %>  
+     
+     <%- include ../partials/footer.ejs %>
  
              </form>
          </div>
