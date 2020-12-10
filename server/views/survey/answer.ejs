@@ -62,8 +62,9 @@ Answer a survey view
                     </div>
                     <% } %>
         
-
-                
+                   <%    var today = new Date();
+                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    %>
 
                 <button class="btn btn-primary btn-submit" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
