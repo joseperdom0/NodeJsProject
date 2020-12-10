@@ -166,6 +166,7 @@ module.exports.performDelete = (req, res, next) => {
 }
 
 module.exports.displayAnswerPage = (req, res, next) => {
+    
     let id = req.params.id;
 
     Survey.findById(id, (err, surveyToAnswer) => {
@@ -183,7 +184,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
 }
 
     module.exports.processAnswerPage = (req, res, next) => {
-
+        
         let id = req.params.id
 
     let newResponse = Response({

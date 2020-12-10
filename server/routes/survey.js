@@ -27,11 +27,9 @@ let passport = require('passport');
 let surveyController = require('../controllers/survey');
 
 // helper function for guard purposes
-function requireAuth(req, res, next)
-{
+function requireAuth(req, res, next) {
     // check if the user is logged in
-    if(!req.isAuthenticated())
-    {
+    if (!req.isAuthenticated()) {
         return res.redirect('/login');
     }
     next();
@@ -73,5 +71,7 @@ router.post('/answer/:id', surveyController.processAnswerPage);
 
 /* GET Route for the Answer List page - READ Operation */
 router.get('/answers', surveyController.displayAnswerList);
+
+
 
 module.exports = router;

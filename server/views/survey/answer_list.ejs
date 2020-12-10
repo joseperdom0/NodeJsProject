@@ -10,61 +10,55 @@ FileName : list.ejs
 List of all answers Views
  -->
 
- <%- include ../partials/header.ejs %>
+<%- include ../partials/header.ejs %>
 
- <%- include ../partials/main_nav.ejs %>
-   
- 
-   <!-- Main Content -->
-   <main class="container">
-     <div class="row">
-         <div class="offset-md-1 col-md-11">
-             <h1><%= title %></h1>
- 
+<%- include ../partials/main_nav.ejs %>
 
 
-             
-<% for(let count = 0; count < ResponseList.length; count++) { %>
+<!-- Main Content -->
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-11">
+            <h1><%= title %></h1>
 
 
-<div class="accordion" id="accordionExample275">
-    <div class="card z-depth-0 bordered">
-      <div class="card-header" id="headingOne2">
-        <h5 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne<%= count %>"
-            aria-expanded="true" aria-controls="collapseOne<%= count %>">
-            Answered Survey #<%= count %>
-          </button>
-        </h5>
-      </div>
-      <div id="collapseOne<%= count %>" class="collapse" aria-labelledby="headingOne2"
-        data-parent="#accordionExample275">
-        <div class="card-body">
-          
-          
-          <h3><%= ResponseList[count].name %></h3>
-          <h6>Answered @ <%= ResponseList[count].time %></h6>
-          <% for(let count2 = 0; count2 < ResponseList[count].questions.length; count2++) { %>
-          <b><%= ResponseList[count].questions[count2] %></b>
-          <p><%= ResponseList[count].answers[count2] %></p>
-          <% } %>
 
+
+            <% for(let count = 0; count < ResponseList.length; count++) { %>
+
+
+            <div class="accordion" id="accordionExample275">
+                <div class="card z-depth-0 bordered">
+                    <div class="card-header" id="headingOne2">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapseOne<%= count %>" aria-expanded="true"
+                                aria-controls="collapseOne<%= count %>">
+                                Answered Survey #<%= count %>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne<%= count %>" class="collapse" aria-labelledby="headingOne2"
+                        data-parent="#accordionExample275">
+                        <div class="card-body">
+
+
+                            <h3><%= ResponseList[count].name %></h3>
+                            <h6>Answered @ <%= ResponseList[count].time %></h6>
+                            <% for(let count2 = 0; count2 < ResponseList[count].questions.length; count2++) { %>
+                            <b><%= ResponseList[count].questions[count2] %></b>
+                            <p><%= ResponseList[count].answers[count2] %></p>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+
+                <% } %>
+            </div>
         </div>
-      </div>
-    </div>
+</main>
 
-<% } %>
-         </div>
-     </div>
-   </main>
-   
- <%- include ../partials/bottom_nav.ejs %>  
- 
- <%- include ../partials/footer.ejs %>
-   
- 
- 
- 
- 
- 
- 
+<%- include ../partials/bottom_nav.ejs %>
+
+<%- include ../partials/footer.ejs %>
