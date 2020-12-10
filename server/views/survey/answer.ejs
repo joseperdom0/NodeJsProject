@@ -58,6 +58,7 @@ Answer a survey view
                                     <input id="choiceOne" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-4] %>" readonly>
                                 </div>      
                                 
+                                
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
@@ -83,9 +84,14 @@ Answer a survey view
                                       </div>
                                     </div>
                                     <input id="choiceFour" type="text" name="choices" class="form-control" value="<%= survey.choices[counter*4-1] %>" readonly>
-                                </div>                                              
+                                </div>    
+                                <input type="text" class="form-control" id="AnswerTextField" placeholder="Please enter a response"
+                                name="answers" value="" required>                                          
                             </div>
                         </div>
+                       
+                        
+
                     <% } %>
                     <% if(survey.type == 'Short Answer') { %>
                         <div class="form-group">
@@ -104,7 +110,7 @@ Answer a survey view
                 <div hidden class="form-group ">
                     <label for="answerTextField">Time</label>
                     <input type="text" class="form-control" id="AnswerTextField" placeholder="Please enter a response"
-                        name="time" value=<%=time %> readonly>
+                        name="time" value= "<%=time %>" readonly>
                 </div>
 
                 <button class="btn btn-primary btn-submit" type="submit">
