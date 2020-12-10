@@ -52,7 +52,7 @@ Answer a survey view
                             <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>">
                                       </div>
                                     </div>
                                     <input id="choiceOne" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-4] %>" readonly>
@@ -62,7 +62,7 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>">
                                       </div>
                                     </div>
                                     <input id="choiceTwo" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-3] %>" readonly>
@@ -71,7 +71,7 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>"">
                                       </div>
                                     </div>
                                     <input id="choiceThree" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-2] %>" readonly>
@@ -80,7 +80,7 @@ Answer a survey view
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                        <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>" value="<%= survey.choices[(counter*4)-4] %>">
                                       </div>
                                     </div>
                                     <input id="choiceFour" type="text" name="choices" class="form-control" value="<%= survey.choices[counter*4-1] %>" readonly>
