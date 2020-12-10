@@ -60,6 +60,7 @@ module.exports.processAddPage = (req, res, next) => {
         "name": req.body.name,    
         "description": req.body.description,
         "type": test,
+        "creator": req.body.creator,
         "questions" : req.body.questions,
         "choices" : req.body.choices
         
@@ -196,9 +197,8 @@ module.exports.displayAnswerPage = (req, res, next) => {
 module.exports.processAnswerPage = (req, res, next) => {
         
     let id = req.params.id
-    var group;
-    var test;
-    var count = Object.keys(req.body.choices).length /4
+    
+   
 
     let newResponse = Response({
         "name": req.body.name,
@@ -206,7 +206,8 @@ module.exports.processAnswerPage = (req, res, next) => {
         "creator": req.body.creator,
         "questions": req.body.questions,
         "choices": req.body.choices,
-        "answers": req.body.answers
+        "answers": req.body.answers,
+        "time": req.body.time,
     });
 
     Response.create( newResponse, (err) => {
