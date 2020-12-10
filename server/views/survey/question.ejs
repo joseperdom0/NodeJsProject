@@ -30,7 +30,7 @@ Add question view
                      name="name" readonly>
                  </div>
 
-                 <div class="form-group">
+                 <div class="form-group" id="qtype">
                     <label for="questiontype">Select Question Format:</label>
                     <select class="custom-select" id="questiontype">
                         <option selected>Choose...</option>
@@ -50,7 +50,6 @@ Add question view
                     <div id="choiceContainer" class="choiceContainer">
                         <div id="multipleChoice" class="multipleChoice">  
                             <!-- Gonna prompt the user for the choices -->
-                            <p>You have decided to make a this multiple choice question.</p> 
                             <label>Please enter the choices: </label>  
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -91,8 +90,7 @@ Add question view
 
                         <!-- If short answers question is selected, then show this div -->
                         <div id="shortAnswer" class="shortAnswer">
-                            <!-- For this question type, the user does not have to add choices -->
-                            <p>You have decided to make this a Short Answer question.</p>
+                            
                         </div>
                   </div>
                  </div>               
@@ -156,6 +154,7 @@ Add question view
         document.getElementById("questiontest").setAttribute('id', 'questiontest' + q);
 
         $('#questionarray').append('</div>')
+
         q++;
     });
  });
