@@ -29,25 +29,26 @@ Add question view
                      placeholder="Enter the Survey Title"
                      name="name" readonly>
                  </div>
+
+                 <div class="form-group">
+                    <label for="questiontype">Select Question Format:</label>
+                    <select class="custom-select" id="questiontype">
+                        <option selected>Choose...</option>
+                        <option value="multipleChoice">Multiple Choice</option>
+                        <option value="shortAnswer">Short Answer</option>
+                    </select>
+                 </div>
                  
                  <!--Question 1-->
                  <label for="questionn">Question 1</label>
                  <div class="form-group" id="questionn">                   
-                    <div class="input-group" id="questionBox1">
+                    <div id="questionBox1">                        
                         <input type="text" aria-label="First name" class="form-control">
-                        <div class="col-xs-2">
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Choose...</option>
-                            <option value="multipleChoice">Multiple Choice</option>
-                            <option value="agreeOrDisagree">Agree/Disagree</option>
-                            <option value="shortAnswer">Short Answer</option>
-                          </select>
-                        </div>
-                    </div>
+                     </div>
 
                     <!-- If multiple choice question is selected, then show this div -->
-                    <div id="choiceContainer">
-                        <div id="multipleChoice" class="group">  
+                    <div id="choiceContainer" class="choiceContainer">
+                        <div id="multipleChoice" class="multipleChoice">  
                             <!-- Gonna prompt the user for the choices -->
                             <p>You have decided to make a this multiple choice question.</p> 
                             <label>Please enter the choices: </label>  
@@ -88,14 +89,8 @@ Add question view
                             </div>                                              
                         </div>
 
-                        <!-- If  agree or disagree question is selected, then show this div -->
-                        <div id="agreeOrDisagree" class="group">
-                            <!-- For this question type, the user does not have to add choices -->
-                            <p>You have decided to make this an Agree or Disagree question.</p>
-                        </div>
-
                         <!-- If short answers question is selected, then show this div -->
-                        <div id="shortAnswer" class="group">
+                        <div id="shortAnswer" class="shortAnswer">
                             <!-- For this question type, the user does not have to add choices -->
                             <p>You have decided to make this a Short Answer question.</p>
                         </div>
@@ -128,19 +123,27 @@ Add question view
 
  <script type="text/javascript">
  $(document).ready(function(){
-  $('.group').hide();
-    $('#inputGroupSelect01').change(
-    function () 
-    {
-        $('.group').hide();
-        $('#'+$(this).val()).show();
-    })
-    $("input[placeholder]").each(
+    var qq = q;
+    $('.multipleChoice').hide();
+    $('.shortAnswer').hide(); 
+        $('#questiontype').change(
         function () 
         {
-         $(this).attr('size', $(this).attr('placeholder').length);
-    });
+            var qtype = "#questiontype";
+            $('.' + $(qtype).val()).show();
+            if ($(qtype).val() == 'multipleChoice') {
+                $('.shortAnswer').hide();
+            }
+            else {
+                $('.multipleChoice').hide();
+            }
 
+        })
+        $("input[placeholder]").each(
+            function () 
+            {
+            $(this).attr('size', $(this).attr('placeholder').length);
+    }); 
     var q = 2;
     $('#add').click(function(){     
         $("#questionarray").append('<div class="form-group"><label id="questiontest"></label>')  
@@ -152,23 +155,7 @@ Add question view
         document.getElementById("questiontest").innerHTML  = "Question " + q;
         document.getElementById("questiontest").setAttribute('id', 'questiontest' + q);
 
-        $("#choiceContainer" + q).children("div").attr('class', 'group' +q);
         $('#questionarray').append('</div>')
-
-        var qq = q;  
-        $('#inputGroupSelect' + q).change(
-        function () 
-        {
-            var test = "#inputGroupSelect" + qq;
-            $('.group' + qq).hide();
-            $('#choiceContainer' + qq).children("#" + $(test).val()).show();
-        })
-        $("input[placeholder]").each(
-            function () 
-            {
-            $(this).attr('size', $(this).attr('placeholder').length);
-        });  
-          
         q++;
     });
  });
