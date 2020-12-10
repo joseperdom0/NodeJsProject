@@ -147,24 +147,36 @@ Add view
 
 </div>
 
+<div class="form-group">
+    <label for="questionTextField">Question <%=count %></label>
+    <input type="text" class="form-control" id="questionTextField"
+        placeholder="Enter the First Question" name="questions" value=""
+        >
+</div>
+
 
 <script>
+
     function addEntry() {
+        
         console.log("YOU CLICKED ME!");
-
+        
         let element = document.getElementById('questionarray');
-
-
         let div = element.appendChild(document.createElement('div'));
-        div.classList.add("form-group");
-        //   let label = div.appendChild(document.createElement('<label id="questiontest">Question</label>'));
+        div.innerHTML = "<label for=\"questionTextField\">Question <%=count %></label><input type=\"text\" \
+        class=\"form-control\" id=\"questionTextField\" placeholder=\"Enter the <%=count %> Question\" name=\"questions\" value=\"\">"
+        //div.classList.add("form-group");
+        //let label = div.appendChild(document.createElement('label'));
+        //label.innerHTML = "Question<%=count%>";
+        
+        //let input = div.appendChild(document.createElement('input'))
+        //input.setAttribute("type","text");
+        //let list = element.appendChild(document.createElement('ul'));
+        //let item = list.appendChild(document.createElement('li'));
+        //let link = item.appendChild(document.createElement('a'));
 
-        let list = element.appendChild(document.createElement('ul'));
-        let item = list.appendChild(document.createElement('li'));
-        let link = item.appendChild(document.createElement('a'));
-
-        link.href = 'https://example.com/';
-        link.textContent = 'Hello, world';
+        //link.href = 'https://example.com/';
+        //link.textContent = 'Hello, world';
     }
 </script>
 
