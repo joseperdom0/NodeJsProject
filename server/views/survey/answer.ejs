@@ -63,8 +63,18 @@ Answer a survey view
                     <% } %>
         
                    <%    var today = new Date();
-                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    var time = today.getMonth() +","+ today.getDate()+","+ today.getFullYear()+"_"+today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                     %>
+
+<div hidden class="form-group " >
+    <label for="answerTextField">Time</label>
+    <input type="text" class="form-control"
+    id="AnswerTextField"
+    placeholder="Please enter a response"
+    name="time" 
+    value=<%=time %>
+    readonly>
+</div>
 
                 <button class="btn btn-primary btn-submit" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>

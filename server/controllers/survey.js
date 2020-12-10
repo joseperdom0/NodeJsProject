@@ -193,6 +193,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
         "creator": req.body.creator,
         "questions": req.body.questions,
         "answers" : req.body.answers,
+        "time" : req.body.time,
     });
 
     Response.create( newResponse, (err) => {
