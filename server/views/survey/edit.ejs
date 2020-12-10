@@ -49,22 +49,69 @@ Edit a survey view
                     name="creator" 
                     value="<%= survey.creator%>"
                     required>
-                </div>
-                
-                <% for(let count = 0; count < survey.questions.length; count++) { %>
-                    <div class="form-group">
-                    <label for="questionTextField">Question <%=count %></label>
-                    <input type="text" class="form-control"
-                    id="questionTextField"
-                    placeholder="Enter the First Question"
-                    name="questions" 
-                    value="<%= survey.questions[count] %>"
-                    >
-                </div>
+                </div>                              
 
-                
+                <% for(let count = 0; count < survey.questions.length; count++) { %>
+                    <div class="form-group" id="questiontag">
+                        <label for="questionTextField">Question <%=count+1 %></label>
+                        <input type="text" class="form-control" id="questionTextField"
+                            placeholder="Enter the First Question" name="questions" value="<%= survey.questions[count] %>">
+                    </div>
+    
+                        <% if(survey.type == 'Multiple Choice') { %>
+                            <% let counter=count+1 %>
+                            <div class="form-group">
+                            <label for="answerTextField">Answer <%=count +1%></label>
+                            <div id="AnswerTextField">
+                                <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                            <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                          </div>
+                                        </div>
+                                        <input id="choiceOne" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-4] %>">
+                                    </div>      
+                                    
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                            <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                          </div>
+                                        </div>
+                                        <input id="choiceTwo" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-3] %>">
+                                    </div>
+        
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                            <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                          </div>
+                                        </div>
+                                        <input id="choiceThree" type="text" name="choices" class="form-control" value="<%= survey.choices[(counter*4)-2] %>">
+                                    </div>
+        
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                            <input type="radio" aria-label="Radio button for following text input" name="group<%=count+1 %>">
+                                          </div>
+                                        </div>
+                                        <input id="choiceFour" type="text" name="choices" class="form-control" value="<%= survey.choices[counter*4-1] %>">
+                                    </div>                                              
+                                </div>
+                            </div>
+                        <% } %>
+                        <% if(survey.type == 'Short Answer') { %>
+                            <div class="form-group">
+                                <label for="answerTextField">Answer <%=count +1%></label>
+                                <input type="text" class="form-control" id="AnswerTextField" placeholder="Please enter a response"
+                                    name="answers" value="" required>
+                            </div>
+                        <% } %>
                 <% } %>
+
                 <div class="form-group" id="questions">
+
                 </div>
 
 
@@ -73,17 +120,16 @@ Edit a survey view
 
 
               
-            
             <script type="text/javascript">
             $(document).ready(function(){
-             
-            var q = 1;
+            var q = $('#questiontag label').last().text();
+            var qq = parseInt(q.substring(q.indexOf(' '))) + 1;
              $('#add').click(function(){     
-               $("#questions").append('<label>Question</label><input type="text" name=questions class="form-control">')
-               //newSurvey.questions.push('Text1');
-               //var x = document.createElement("INPUT");
-               //x.setAttribute("type", "text");
-            
+               $("#questions").append('<label>Question ' + qq + '</label><input type="text" name=questions class="form-control"><br>')
+               $('#questions').append('<label for="answerTextField">Answer ' + qq + '</label>')
+               $('#AnswerTextField').clone().appendTo("#questions");
+               $("#questions").append('<br>')
+                qq++;
              });
             });
             </script>

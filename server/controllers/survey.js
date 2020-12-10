@@ -141,6 +141,7 @@ module.exports.processEditPage = (req, res, next) => {
         "description": req.body.description,
         "creator": req.body.creator,
         "questions": req.body.questions,
+        "choices": req.body.choices
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) => {
@@ -192,18 +193,26 @@ module.exports.displayAnswerPage = (req, res, next) => {
     });
 }
 
-    module.exports.processAnswerPage = (req, res, next) => {
+module.exports.processAnswerPage = (req, res, next) => {
         
-        let id = req.params.id
+    let id = req.params.id
+    var group;
+    var test;
+    var count = Object.keys(req.body.choices).length /4
+
+    for (var i=1;i<=count;i++){
+        group = "group" + i;
+        console.log(group);
+        console.log(test);
+    }
 
     let newResponse = Response({
-        
         "name": req.body.name,
         "description": req.body.description,
         "creator": req.body.creator,
         "questions": req.body.questions,
-        "answers" : req.body.answers,
-        "time" : req.body.time,
+        "choices": req.body.choices,
+        "answers": test
     });
 
     Response.create( newResponse, (err) => {
@@ -217,24 +226,24 @@ module.exports.displayAnswerPage = (req, res, next) => {
             // refresh the survey list
             res.redirect('/survey-list');
         }
+    }); 
+    
+}
+    
+module.exports.displayAnswerList = (req, res, next) => {
+    Response.find((err, responseList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            //console.log(SurveyList);
+    
+            res.render('survey/answer_list', 
+            {title: 'Answers', 
+            ResponseList: responseList, 
+            displayName: req.user ? req.user.displayName : ''});      
+        }
     });
-    
-    }
-    
-    module.exports.displayAnswerList = (req, res, next) => {
-        Response.find((err, responseList) => {
-            if(err)
-            {
-                return console.error(err);
-            }
-            else
-            {
-                //console.log(SurveyList);
-    
-                res.render('survey/answer_list', 
-                {title: 'Answers', 
-                ResponseList: responseList, 
-                displayName: req.user ? req.user.displayName : ''});      
-            }
-        });
-    }
+}
