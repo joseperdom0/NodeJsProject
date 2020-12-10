@@ -36,12 +36,12 @@ FileName : main_nav.ejs
         <a class="nav-link" href="/about"><i class="fas fa-lg fa-question-circle"></i> About Us </a>
         </li>
 
-        <% if (title == "Products") { %>
+        <% if (title == "Answers") { %>
           <li class="nav-item active ">
             <% } else { %>
           <li class="nav-item"></li>
           <% } %>
-          <a class="nav-link" href="/products"> <i class="fas fa-lg fa-book-dead"></i> Products </a>
+          <a class="nav-link" href="/survey-list/answers"> <i class="fas fa-lg fa-book-dead"></i> Answers </a>
         </li>
 
 
@@ -54,6 +54,7 @@ FileName : main_nav.ejs
         
           <a class="nav-link" href="/services"><i class="fas fa-lg fa-at"></i> Services </a>
         </li>
+        
 
 
         <% if (title == "Contacts") { %>
