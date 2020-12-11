@@ -81,40 +81,6 @@ module.exports.processAddPage = (req, res, next) => {
 
 }
 
-/**Added this chunk of code for questions page **********/
-module.exports.displayQuestionPage = (req, res, next) => {
-    res.render('survey/question', {title: 'Create Questions', 
-    displayName: req.user ? req.user.displayName : ''})          
-}
-
-module.exports.processQuestionPage = (req, res, next) => {
-    let newSurvey = Survey({
-        "name": req.body.name,
-        "question1": req.body.question1,
-        "answer1": req.body.answer1,
-        "question2": req.body.question2,
-        "answer2": req.body.answer2,
-        "question3": req.body.question3,
-        "answer3": req.body.answer3
-    });
-
-    Survey.create(newSurvey, (err, Survey) =>{
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            // refresh the survey list
-            res.redirect('/survey-list');
-        }
-    });
-
-}
-/*******************************************************/
-
-
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
 
