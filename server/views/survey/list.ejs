@@ -30,15 +30,15 @@ List of all survey Views
                 <!-- Header Row-->
                 <tr class="d-flex">
                     <% if(typeof displayName == 'string' && displayName) { %>
-                        <th class="text-center col-2">Name</th>
-                        <th class="text-center col-2">Description</th>
+                        <th class="text-center col-3">Survey Name</th>
+                        <th class="text-center col-3">Description</th>
                         <th class="text-center col-1">Creator</th>
                         <th class="text-center col-3">Survey Question Type</th>
 
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                     <% } else { %>
-                        <th class="text-center col-3">Name</th>
+                        <th class="text-center col-3">Survey Name</th>
                         <th class="text-center col-3">Description</th>
                         <!--<th class="text-center col-1">Answer 1</th>-->
                         <th class="text-center col-3">Creator</th>
@@ -53,8 +53,8 @@ List of all survey Views
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
                     <tr class="d-flex">
                         <% if(typeof displayName == 'string' && displayName) { %>
-                            <td class="text-center col-2"><%= SurveyList[count].name %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].description %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].name %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].description %></td>
                             <td class="text-center col-1"><%= SurveyList[count].creator%></td>
                             <td class="text-center col-3"><%= SurveyList[count].type%></td>    
                             
