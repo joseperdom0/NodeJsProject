@@ -7,6 +7,7 @@ This was a team based project using:
 <li> CSS</li>
 <li> Heroku Deployment</li>
 <li> JavaScript</li>
+<li> MongoDB</li>
 <li> NodeJs</li>
 </ul>
 
